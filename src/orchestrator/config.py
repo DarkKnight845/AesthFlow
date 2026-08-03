@@ -16,7 +16,9 @@ class Settings(BaseSettings):
     model_config  = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # LLM
-    openai_api_key: str = ""
+    # openai_api_key: str = ""  # temporarily disabled while using Gemini
+    google_api_key: str = ""   # Google Gemini / AI Studio API key
+    # anthropic_api_key: str = ""  # not currently used
 
     # Search
     tavily_api_key: str = ""

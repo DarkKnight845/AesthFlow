@@ -11,9 +11,9 @@ import structlog
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.orchestrator.config import settings
-from src.orchestrator.core.events import Event
-from src.orchestrator.persistence.models import EventRow
+from orchestrator.config import settings
+from orchestrator.core.events import Event
+from orchestrator.persistence.models import EventRow
 
 logger = structlog.get_logger(__name__)
 

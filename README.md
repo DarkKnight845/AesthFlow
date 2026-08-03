@@ -31,7 +31,7 @@ For the architectural rationale behind each layer, see [`ARCHITECTURE.md`](ARCHI
 - **PostgreSQL 16** (persistence — Docker)
 - **Redis 7** (event bus — Docker)
 - **Docker + Docker Compose**
-- **OpenAI API key** + **Tavily API key** (web search)
+- **Google Gemini API key** (AI Studio, free tier) + **Tavily API key** (web search)
 
 > **Windows note:** the local Postgres container is published on port `5434` instead of the default `5432` to avoid conflicts with a native Windows PostgreSQL service. If you still see password-auth failures, run `netstat -ano | findstr 543` and stop any local `postgres.exe` that owns the port.
 
@@ -68,7 +68,7 @@ cp .env.example .env
 Edit `.env` and set at minimum:
 
 ```dotenv
-OPENAI_API_KEY=sk-...
+GOOGLE_API_KEY=AIza-...
 TAVILY_API_KEY=tvly-...
 ```
 
