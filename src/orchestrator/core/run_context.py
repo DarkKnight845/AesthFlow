@@ -16,8 +16,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from uuid import uuid4
 
-from src.orchestrator.config import settings
-from src.orchestrator.core.state import AgentState
+from orchestrator.config import settings
+from orchestrator.core.state import AgentState
 
 
 @dataclass
