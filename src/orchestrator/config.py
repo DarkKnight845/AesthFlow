@@ -16,9 +16,13 @@ class Settings(BaseSettings):
     model_config  = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # LLM
+<<<<<<< HEAD
     # openai_api_key: str = ""  # temporarily disabled while using Gemini
     google_api_key: str = ""   # Google Gemini / AI Studio API key
     # anthropic_api_key: str = ""  # not currently used
+=======
+    openai_api_key: str = ""
+>>>>>>> f80551f (AesthFlow version1.0)
 
     # Search
     tavily_api_key: str = ""

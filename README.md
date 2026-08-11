@@ -256,6 +256,19 @@ Every node and agent must emit events via `publish_event`:
 
 The entire debugging, replay, and future dashboard story depends on this being consistent.
 
+### Agent return contract
+
+Every specialist agent's callable (the function registered in `AGENT_REGISTRY`) must return a dictionary containing exactly:
+
+- `agent_results` — required, with at least one entry describing what the agent produced.
+- `token_count` — required, containing the agent's own `state["token_count"]` after its nodes have run. This ensures cumulative token usage remains accurate across a multi-agent run.
+
+The agent **must not return** `scratch`.
+
+`scratch` is private working space for an agent's own nodes. Propagating it into the shared top-level state can cause key collisions between agents that reuse the same node types. For example, both the Research Analyst and Fact Checker use `WebSearchNode`, which defaults to writing under `scratch["search_results"]`.
+
+See `agents/research_analyst.py` for the reference implementation.
+
 ### Code review rules
 
 - Open PRs against `dev`.

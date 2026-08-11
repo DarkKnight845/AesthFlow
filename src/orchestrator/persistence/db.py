@@ -8,7 +8,11 @@ from collections.abc import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
+<<<<<<< HEAD
 from orchestrator.config import settings
+=======
+from src.orchestrator.config import settings
+>>>>>>> f80551f (AesthFlow version1.0)
 
 engine = create_async_engine(settings.database_url, echo=(settings.environment == "development"))
 
