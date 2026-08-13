@@ -42,6 +42,7 @@ def _format_context(task: str, search_results: list[dict[str, object]]) -> str:
 async def research_analyst_agent(state: AgentState) -> dict[str, Any]:
     """Search the web, then synthesize findings into a researched answer."""
     run_id = state["run_id"]
+    tokens_before = state["token_count"]
 
     async with AsyncSessionLocal() as session:
         await publish_event(
@@ -74,6 +75,7 @@ async def research_analyst_agent(state: AgentState) -> dict[str, Any]:
                     "agent": AGENT_NAME,
                     "answer": answer,
                     "sources": search_results,
+                    "token_count": state["token_count"] - tokens_before,
                     "metadata": {"nodes_used": ["web_search", "llm_reasoner"]},
                 }
             ]
